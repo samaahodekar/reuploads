@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Samaa's Corner</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #263238;
+      --muted: #647276;
+      --accent: #287c72;
+      --accent-dark: #1d625a;
+      --paper: #fffdf8;
+      --surface: #ffffff;
+      --soft-green: #e8f4ef;
+      --soft-peach: #fff0e5;
+      --soft-lilac: #f0edfb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(100% - 2rem, 1024px);
+      margin-inline: auto;
+    }
+
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid #e8e7df;
+    }
+
+    .nav-bar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      color: var(--accent-dark);
+      font-size: 1.25rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--accent-dark);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .hero {
+      padding: clamp(4rem, 10vw, 7rem) 0;
+      background:
+        radial-gradient(ellipse at 82% 25%, #f7ddc9 0, transparent 27%),
+        radial-gradient(ellipse at 12% 90%, #dcefe5 0, transparent 32%),
+        var(--paper);
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin-bottom: 1rem;
+      font-size: clamp(2.6rem, 7vw, 4.7rem);
+      letter-spacing: -0.055em;
+      line-height: 1.08;
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      margin-bottom: 1.75rem;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.8rem 1.15rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 150ms ease, transform 150ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 4rem 0;
+      scroll-margin-top: 1rem;
+    }
+
+    .section-heading {
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      margin-bottom: 0.65rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+    }
+
+    .section-heading p,
+    .about-copy {
+      color: var(--muted);
+    }
+
+    .about-panel {
+      padding: clamp(1.5rem, 5vw, 3rem);
+      border: 1px solid #e6ebe5;
+      border-radius: 24px;
+      background: var(--surface);
+    }
+
+    .about-copy {
+      max-width: 720px;
+      margin-bottom: 0;
+      font-size: 1.05rem;
+    }
+
+    .interests {
+      background: #f6f7f1;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      min-height: 190px;
+      padding: 1.5rem;
+      border-radius: 20px;
+      background: var(--surface);
+    }
+
+    .card:nth-child(1) {
+      background: var(--soft-green);
+    }
+
+    .card:nth-child(2) {
+      background: var(--soft-peach);
+    }
+
+    .card:nth-child(3) {
+      background: var(--soft-lilac);
+    }
+
+    .card-icon {
+      display: block;
+      margin-bottom: 0.7rem;
+      font-size: 1.65rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: #536267;
+      font-size: 0.96rem;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact .section-heading {
+      margin-inline: auto;
+    }
+
+    footer {
+      padding: 1.5rem 0;
+      border-top: 1px solid #e8e7df;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 640px) {
+      .nav-bar {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding-block: 1rem;
+      }
+
+      nav ul {
+        gap: 0.75rem 1rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-bar">
+      <a class="brand" href="#home">Samaa's Corner</a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#interests">Interests</a></li>
+          <li><a href="#contact">Say hello</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <p class="eyebrow">A little corner of the internet</p>
+        <h1>Hi, I'm Samaa.<br>It's lovely to meet you.</h1>
+        <p class="hero-copy">
+          Welcome to my little space online, where I share the things I enjoy
+          and the ideas that make me curious.
+        </p>
+        <a class="button" href="#about">Get to know me</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-panel">
+          <p class="eyebrow">A bit about me</p>
+          <h2>Curious by nature, happy to be here.</h2>
+          <p class="about-copy">
+            I'm Samaa, and I love discovering new things, finding inspiration
+            in everyday moments, and making time for what brings me joy. This
+            website is a simple introduction and a place to share a few of my
+            favorite interests.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="interests" id="interests">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Things I enjoy</p>
+          <h2>A few of my favorite things</h2>
+          <p>Little interests that bring inspiration, fun, and fresh ideas.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">✦</span>
+            <h3>Getting creative</h3>
+            <p>Trying new ideas and making something that feels like my own.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">♡</span>
+            <h3>Finding inspiration</h3>
+            <p>Noticing the small details and bright moments in everyday life.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">✿</span>
+            <h3>Learning new things</h3>
+            <p>Staying curious and enjoying the journey of discovering more.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Thanks for stopping by</p>
+          <h2>Come say hello!</h2>
+          <p>I'm glad you visited my little corner of the internet.</p>
+        </div>
+        <a class="button" href="mailto:hello@example.com">Send me an email</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Made with care by Samaa · 2026</p>
+    </div>
+  </footer>
+</body>
+</html>
